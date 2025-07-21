@@ -9,22 +9,27 @@
     state: started
     enabled: yes
 
-- name: removing all files in html folder
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+# - name: removing all files in html folder
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
 
-- name: creating html directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
+# - name: creating html directory
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: directory
 
-- name: download and unzip frontend
-  ansible.builtin.unarchive:
-      src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /usr/share/nginx/html
-      remote_src: yes
-  
+# - name: download and unzip frontend
+#   ansible.builtin.unarchive:
+#       src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#       dest: /usr/share/nginx/html
+#       remote_src: yes
+
+- name: calling common
+  ansible.builtin.ipmort_role:
+    name: common
+    tasks_from: app-pre-req
+
 - name: copying expense conf file to frontend server
   ansible.builtin.template:
     src: expense.conf.j2
