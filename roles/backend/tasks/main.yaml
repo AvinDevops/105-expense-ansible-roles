@@ -34,12 +34,16 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
+  tags:
+  - deployment
 
 
 - name: install npm dependencies
   ansible.builtin.command: npm install
   args:
     chdir: /app
+  tags:
+  - deployment
 
 - name: copying backend service to backend server
   ansible.builtin.template:
@@ -76,5 +80,7 @@
 - name: start and enable
   ansible.builtin.service:
     name: backend
-    state: started
+    state: restarted
     enabled: yes
+  tags:
+  - deployment
