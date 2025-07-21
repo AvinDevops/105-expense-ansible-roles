@@ -1,6 +1,6 @@
 login_host: 172.31.80.179
 login_user: root
-login_password: ExpenseApp@1
+#login_password: ExpenseApp@1
 DB_URL:  172.31.80.179
 app_loc: /app
 component: backend
