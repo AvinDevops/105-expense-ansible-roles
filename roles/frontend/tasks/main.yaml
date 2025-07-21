@@ -26,7 +26,7 @@
 #       remote_src: yes
 
 - name: calling common
-  ansible.builtin.ipmort_role:
+  ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
 
