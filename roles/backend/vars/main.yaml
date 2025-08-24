@@ -1,6 +1,6 @@
-login_host: 172.31.91.215
+login_host: db.avinexpense.online
 login_user: root
 #login_password: ExpenseApp@1
-DB_URL:  172.31.91.215
+DB_URL:  db.avinexpense.online
 app_loc: /app
 component: backend
